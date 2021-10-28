@@ -1,4 +1,4 @@
-module github.com/TkmTwoProjects/go-kafka
+module github.com/tkmtwoprojects/go-kafka
 
 go 1.17
 
