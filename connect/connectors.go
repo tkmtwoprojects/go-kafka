@@ -136,8 +136,8 @@ func (s *ConnectorsService) Get(name string) (Connector, error) {
 			NewRequest().
 			SetResult(&result).
 			Get(s.client.BaseURL.String() + "connectors/" + name)
-
-	if resp.StatusCode() >= 400 {
+	
+	if resp.StatusCode() >= 400 && resp.StatusCode() != 404 {
 		return Connector{}, fmt.Errorf("Get: %v", resp.String())
 	}
 
