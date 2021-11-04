@@ -1,7 +1,6 @@
 //go:build unit
 // +build unit
 
-
 package connect
 
 import (
@@ -24,6 +23,7 @@ const fullConnectorResponse = `{
 
 func setup() *Client {
 	c, _ := NewClient(nil, "http://localhost/")
+	//c, _ := NewClientWithBasicAuth(nil, "http://localhost/", "someuname", "somepasswd")
 	return c
 }
 

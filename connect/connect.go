@@ -46,6 +46,16 @@ type service struct {
 	client *Client
 }
 
+func NewClientWithBasicAuth(httpClient *http.Client, baseURL string, uname string, passwd string) (*Client, error) {
+	c, err := NewClient(httpClient, baseURL)
+	if err != nil {
+		return nil, err
+	}
+
+	c.restyClient.SetBasicAuth(uname, passwd)
+	return c, nil
+}
+
 func NewClient(httpClient *http.Client, baseURL string) (*Client, error) {
 	if httpClient == nil {
 		httpClient = &http.Client{}
